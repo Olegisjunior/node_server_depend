@@ -30,7 +30,7 @@ app.listen(PORT, (error) => {
 
 app.use(express.urlencoded({ extended: false }));
 
-app.use(express.static("styles"));
+app.use(express.static("public"));
 
 app.use(methodOverride("_method"));
 
