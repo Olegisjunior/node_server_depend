@@ -3,15 +3,15 @@ const { getPost, deletePost, editPost, getPosts, addPost } = require("../control
 
 const router = express.Router();
 
-// get all
+// Get All Posts
 router.get("/api/posts", getPosts);
-// add new post
-router.post("/api/post", addPost);
-// get post by id
+// Add New Post
+router.post("/api/post/", addPost);
+// Get Post by ID
 router.get("/api/post/:id", getPost);
-// delete post by id
+// Delete Post by ID
 router.delete("/api/post/:id", deletePost);
-// upd post by id
+// Update Post by ID
 router.put("/api/post/:id", editPost);
 
 module.exports = router;
