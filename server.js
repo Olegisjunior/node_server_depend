@@ -28,6 +28,11 @@ app.listen(PORT, (error) => {
   error ? console.log(errorMsg(error)) : console.log(successMsg(`listening port ${PORT}`));
 });
 
+app.use((req, res, next) => {
+  res.setHeader("Content-Security-Policy", "default-src 'self'; script-src 'self' 'unsafe-inline'");
+  next();
+});
+
 app.use(express.urlencoded({ extended: false }));
 
 app.use(express.static("public"));
