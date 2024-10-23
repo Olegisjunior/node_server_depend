@@ -16,13 +16,16 @@ const app = express();
 
 app.set("view engine", "ejs");
 
+const PORT = process.env.PORT;
+const URL = process.env.MONGO_URL;
+
 mongoose
-  .connect(process.env.MONGO_URL) // , { useNewUrlParser: true, useUnifiedTopology: true }
+  .connect(URL) // , { useNewUrlParser: true, useUnifiedTopology: true }
   .then((res) => console.log(successMsg("Connected to DB")))
   .catch((err) => console.log(errorMsg(err)));
 
-app.listen(process.env.PORT, (error) => {
-  error ? console.log(errorMsg(error)) : console.log(successMsg(`listening port ${process.env.PORT}`));
+app.listen(PORT, (error) => {
+  error ? console.log(errorMsg(error)) : console.log(successMsg(`listening port ${PORT}`));
 });
 
 app.use(express.urlencoded({ extended: false }));
